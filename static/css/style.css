@@ -1,0 +1,23 @@
+/* body{
+     background-color: #6f7175 !important; 
+
+*/
+.navbar-brand{
+    font-size: 25px;
+    font-family: math;
+
+}
+ul li a{
+    color: white !important;
+    font-family: emoji;
+    font-size: 15px;
+
+}
+.bg-custom{
+    background-color: #EB1C24 !important;
+}
+
+
+ul li .dropdown-item:hover{
+    background-color: #000000 !important;
+}
