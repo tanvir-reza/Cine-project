@@ -26,13 +26,10 @@
             MOVIES
           </a>
           <ul class="dropdown-menu bg-custom" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Bangla</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">English</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Hindi</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Tamil</a></li>
+            {% for c in categories %}
+            <li><a class="dropdown-item" href="#">{{c.name}}</a></li>
+            <li class="{% if forloop.last %}d-none{% endif %}"><hr class="dropdown-divider"></li>
+            {% endfor %}
           </ul>
         </li>
         <li class="nav-item">
