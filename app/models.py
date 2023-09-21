@@ -6,6 +6,7 @@ class Info(models.Model):
     email = models.EmailField(max_length=100,blank=True,default='admin@gmail.com') 
     about = models.TextField()
     phone = models.CharField(max_length=15,blank=True,default='01234567890')
+    logo = models.ImageField(upload_to='site/',blank=True,default='site/default_logo.png')
 
     def __str__(self):
         return self.name
@@ -15,6 +16,7 @@ class Info(models.Model):
     
 class Category(models.Model):
     name = models.CharField(max_length=100)
+    cretaed_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.name

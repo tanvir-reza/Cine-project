@@ -9,8 +9,8 @@
   </div>
   <div class="carousel-inner">
     {% for slider in sliders %}
-    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
-      <img src="{{slider.image.url}}" class="img-fluid w-100 rounded-25" alt="{{slider.title}}">
+    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}" data-bs-interval="2000">
+      <a href="{% url "moviedetails" slider.id %}"><img src="{{slider.image.url}}" class="d-block w-100 img-fluid" alt="{{slider.title}}"></a>
     </div>
     {% endfor %}
   </div>
@@ -30,7 +30,7 @@
 
   <div class="owl-carousel owl-theme">
     {% for movie in latest_movie %}
-    <div class="item "><h4><img src="{{movie.image.url}}" alt="{{movie.title}}" ></h4></div>
+    <a href='{% url "moviedetails" movie.id %}'><div class="item "><h4><img src="{{movie.image.url}}" alt="{{movie.title}}" ></h4></div></a>
     {% endfor %}
 </div>
 

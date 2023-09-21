@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% block body %}
-<div class="text-center">
+<div class="text-center" style="align-items: center;
+display: flex;
+flex-direction: column;">
           <h1 class="text-bold  mt-5 mb-5">ABOUT</h1>
 
-          <p>{{info.about}}</p>
+          <div class="w-50">
+            <p>{{info.about}}</p>
+          </div>
 </div>
 {% endblock body %}    

@@ -1,0 +1,15 @@
+{% extends 'adminbase.html' %}
+{% block body %}
+<div class=" container" style="align-items: center;
+display: flex;
+flex-direction: column;">
+          
+            <h2 class="text-bold  mt-5 mb-2">{{title}}</h2> 
+            <form action="{% url "addmovie" %}" method="POST">
+                {% csrf_token %}
+                {{form}}
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+          
+</div>
+{% endblock body %}    

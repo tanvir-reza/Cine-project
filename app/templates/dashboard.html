@@ -2,7 +2,7 @@
 {% block body %}
 <div class="container text-center">
           <h1 class="text-bold  mt-5 ">All Movies</h1>
-          <button class="btn btn-success mb-5">Add Movie</button>
+          <a href="{% url 'addmovie' %}" class="btn btn-primary">Add Movie</a>
           <table class="table table-striped">
   <thead>
     <tr>
@@ -19,8 +19,8 @@
         <td class="fw-bold text-info">{{m.title}}</td>
         <td>{{m.genre}}</td>
         <td>
-        <a href="" class="btn btn-primary">Edit</a>
-        <a href="" class="btn btn-danger">Delete</a>
+        <a href="{% url "movieupdate" m.id %}" class="btn btn-primary">Edit</a>
+        <a href="{% url "moviedelete" m.id %}" class="btn btn-danger">Delete</a>
         </td>
         </tr>
     {% endfor %}
