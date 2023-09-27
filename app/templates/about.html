@@ -1,12 +1,16 @@
+
 {% extends 'base.html' %}
 {% block body %}
-<div class="text-center" style="align-items: center;
+<div class="text-center container" style="align-items: center;
 display: flex;
 flex-direction: column;">
-          <h1 class="text-bold  mt-5 mb-5">ABOUT</h1>
+          <h1 class="text-bold  mt-5 mb-5">ABOUT US</h1>
 
-          <div class="w-50">
-            <p>{{info.about}}</p>
+          <div class="card mh-100" stye="text-align: justify;">
+            <div class="img-responsive img-responsive-21x9" style="background-image: url(https://phiju.edu.bd/front/uploads/collage_cover.jpg)"></div>
+            <div class="card-body">
+              <p class="text-justify text-muted">{{info.about}}</p>
+            </div>
           </div>
 </div>
 {% endblock body %}    

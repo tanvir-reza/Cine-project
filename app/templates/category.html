@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="text-center container" style="align-items: center;
+display: flex;
+flex-direction: column;">
+          <h1 class="text-bold mt-5 mb-5">Category - {{category}}</h1>
+
+          
+          {% if movies %}
+          <div class="row">
+            {% for m in movies %}
+            <div class="col-md-3">
+                <div class="card">
+                <img class="card-img-top" src="{{m.image.url}}" alt="{{m.title}}">
+                <div class="card-body" style="background-color: aliceblue !important">
+                    <h5 class="card-title">{{m.title}}</h5>
+                    <p class="card-text">{{m.description|truncatewords:10}}</p>
+                    <a href="{% url "moviedetails" m.id %}" class="btn btn-primary">More</a>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <h1 class="text-warning">NO MOVIES</h1>
+          {% endif %}
+           
+</div>
+{% endblock body %}    

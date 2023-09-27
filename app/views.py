@@ -25,6 +25,14 @@ def moviedetails(request,id):
     }
     return render(request,'movie-details.html',context=context)
 
+def category(request,category):
+    movies = Movie.objects.filter(genre__name=category)
+    context = {
+        'movies':movies,
+        'category':category
+    }
+    return render(request,'category.html',context=context)
+
 def about(request):
     return render(request,'about.html')
 
@@ -122,7 +130,27 @@ def administration(request):
     return render(request,'dashboard.html',context=context)
 
 
+@login_required(login_url='login')
+def category_admin(request):
+    categories = Category.objects.all()
+    context = {
+        'categories':categories
+    }
+    return render(request,'category-admin.html',context=context)
 
+@login_required(login_url='login')
+def category_add(request):
+    form = CategoryForm()
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('dashboard'))
+    context = {
+        'title':'Add Category',
+        'form':form
+    }
+    return render(request,'modify.html',context=context)
 
 
 @login_required(login_url='login')
