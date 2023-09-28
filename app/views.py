@@ -34,7 +34,11 @@ def category(request,category):
     return render(request,'category.html',context=context)
 
 def about(request):
-    return render(request,'about.html')
+    info = Info.objects.all().first()
+    context = {
+        'info':info
+    }
+    return render(request,'about.html',context)
 
 def contact(request):
     return render(request,'contact.html')
@@ -142,6 +146,7 @@ def category_admin(request):
 def category_add(request):
     form = CategoryForm()
     if request.method == 'POST':
+        print(request.POST)
         form = CategoryForm(request.POST)
         if form.is_valid():
             form.save()
@@ -152,10 +157,33 @@ def category_add(request):
     }
     return render(request,'modify.html',context=context)
 
+def category_edit(request,id):
+    category = Category.objects.get(pk=id)
+    form = CategoryForm(instance=category)
+    if request.method == 'POST':
+        form = CategoryForm(request.POST,request.FILES,instance=category)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('category-admin'))
+    context = {
+        'title':'Edit Category',
+        'form':form
+    }
+    return render(request,'modify.html',context=context)
+
+def category_delete(request,id):
+    category = Category.objects.get(pk=id)
+    category.delete()
+    return HttpResponseRedirect(reverse('category-admin'))
+
 
 @login_required(login_url='login')
 def userlogout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
 
 

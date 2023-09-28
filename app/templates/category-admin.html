@@ -2,7 +2,7 @@
 {% block body %}
 <div class="container text-center">
           <h1 class="text-bold  mt-5 ">All Categories</h1>
-          <a href="{% url 'addmovie' %}" class="btn btn-primary">Add Category</a>
+          <a href="{% url 'category-add' %}" class="btn btn-primary">Add Category</a>
           <table class="table table-striped">
   <thead>
     <tr>
@@ -17,8 +17,8 @@
         <th scope="row ">{{forloop.counter}}</th>
         <td class="fw-bold text-info">{{c.name}}</td>
         <td>
-        <a href="{% url "movieupdate" c.id %}" class="btn btn-primary">Edit</a>
-        <a href="{% url "moviedelete" c.id %}" class="btn btn-danger">Delete</a>
+        <a href="{% url "categoryedit" c.id %}" class="btn btn-primary">Edit</a>
+        <a href="{% url "categorydelete" c.id %}" class="btn btn-danger">Delete</a>
         </td>
         </tr>
     {% endfor %}

@@ -8,7 +8,6 @@ class Info(models.Model):
     about = models.TextField()
     phone = models.CharField(max_length=15,blank=True,default='01234567890')
     logo = models.ImageField(upload_to='site/',blank=True,default='site/default_logo.png')
-    about_img = models.ImageField(upload_to='site/',blank=True,default='site/default_about.png')
     facabook = models.CharField(max_length=100,blank=True,default='#')
     twitter = models.CharField(max_length=100,blank=True,default='#')
     instagram = models.CharField(max_length=100,blank=True,default='#')

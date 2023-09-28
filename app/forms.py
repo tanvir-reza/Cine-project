@@ -16,14 +16,14 @@ class MovieForm(forms.ModelForm):
         model = Movie
         fields = '__all__'
         exclude = ['created_at']
-        # widget ={
-        #     'name':forms.TextInput(attrs={'class':'form-control'}),
-        #     'gener':forms.Select(attrs={'class':'form-control'}),
-        #     'year':forms.NumberInput(attrs={'class':'form-control'}),
-        #     'rating':forms.NumberInput(attrs={'class':'form-control'}),
-        #     'description':forms.Textarea(attrs={'class':'form-control'}),
-        #     'image':forms.FileInput(attrs={'class':'form-control'}),
-        # }
+        widget ={
+            'name':forms.TextInput(attrs={'class':'form-control'}),
+            'gener':forms.Select(attrs={'class':'form-control'}),
+            'year':forms.NumberInput(attrs={'class':'form-control'}),
+            'rating':forms.NumberInput(attrs={'class':'form-control'}),
+            'description':forms.Textarea(attrs={'class':'form-control'}),
+            'image':forms.FileInput(attrs={'class':'form-control'}),
+        }
 
 
 class InfoForm(forms.ModelForm):
@@ -36,6 +36,19 @@ class InfoForm(forms.ModelForm):
     class Meta:
         model = Info
         fields = '__all__'
+        widgets = {
+            'name':forms.TextInput(attrs={'class':'form-control'}),
+            'email':forms.EmailInput(attrs={'class':'form-control'}),
+            'address':forms.TextInput(attrs={'class':'form-control'}),
+            'about':forms.Textarea(attrs={'class':'form-control'}),
+            'phone':forms.TextInput(attrs={'class':'form-control'}),
+            'logo':forms.FileInput(attrs={'class':'form-control'}),
+            'about_img':forms.FileInput(attrs={'class':'form-control'}),
+            'facabook':forms.TextInput(attrs={'class':'form-control'}),
+            'twitter':forms.TextInput(attrs={'class':'form-control'}),
+            'instagram':forms.TextInput(attrs={'class':'form-control'}),
+            'linkedin':forms.TextInput(attrs={'class':'form-control'}),
+        }
 
 class CategoryForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -47,4 +60,9 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = '__all__'
+
+        widgets = {
+            'name':forms.TextInput(attrs={'class':'form-control'}),
+        }
+        
         

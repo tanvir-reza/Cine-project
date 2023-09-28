@@ -1,13 +1,14 @@
 
 {% extends 'base.html' %}
 {% block body %}
+{% load static %}
 <div class="text-center container" style="align-items: center;
 display: flex;
 flex-direction: column;">
           <h1 class="text-bold  mt-5 mb-5">ABOUT US</h1>
 
           <div class="card mh-100" stye="text-align: justify;">
-            <div class="img-responsive img-responsive-21x9" style="background-image: url(https://phiju.edu.bd/front/uploads/collage_cover.jpg)"></div>
+            <div class="img-responsive img-responsive-21x9" style="background-image: url({% static "img/about.jpg" %})"></div>
             <div class="card-body">
               <p class="text-justify text-muted">{{info.about}}</p>
             </div>
