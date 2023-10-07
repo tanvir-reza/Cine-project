@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Movie,Info
+from .models import Movie,Info,Category,professional
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect,HttpResponse,HttpResponseRedirect
 from django.urls import reverse
@@ -11,10 +11,12 @@ from django.views.generic.edit import CreateView
 # Create your views here.
 def index(request):
     slider = Movie.objects.all()[0:3]
-    latest_movie = Movie.objects.all()
+    latest_movie = Movie.objects.all().order_by('-id')[0:6]
+    pro = professional.objects.all().first()
     context = {
         'sliders':slider,
-        'latest_movie':latest_movie
+        'latest_movie':latest_movie,
+        'pro':pro
     }
     return render(request,'index.html',context=context)
 

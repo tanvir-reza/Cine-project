@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
-        <div class="">
+{% load static %}
+        <div class="container">
           <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -24,7 +25,7 @@
   </button>
 </div>
 </div>
-<div class=" mt-5">
+<div class=" mt-5 mb-5 container">
 
   {% comment %} <h1>MOVIES</h1> {% endcomment %}
 
@@ -34,7 +35,127 @@
     {% endfor %}
 </div>
 
+<div class="text-center h1 mt-5">
+  <span style="border-bottom: 5px solid #304a9f;">Professionals</span>
+</div>
+
+
+<div class="container">
+  <div class="row mt-4">
+  <div class="col-md-4 col-sm-12">
+    <img class="w-75 rounded mx-auto d-block" src="{% static "/img/photo.JPEG" %}" alt="" srcset="">
+    <div class="text-center">
+      <h1 style="font-family: monospace !important">{{pro.name}}</h1>
+      <h5>{{pro.designation}}</h5>
+      {% comment %} <p>Department of Computer Science & Engineering</p> {% endcomment %}
+    </div>
+  </div>
+  <div class="col-md-8 col-sm-12 col-sm-mt-5">
+    <div class="fac_detail">
+                            <!-- <div class="fac_title">
+                                <h2>{{ post.fullName | safe }}</h2>{% if post.leav_status %}(<span>{{ post.leav_status | safe }}</span>){% endif %}
+                                <h6>{{ post.designation | safe }}</h6>
+                                <p>Department of Computer Science & Engineering</p>
+                            </div> -->
+                            <div class="fac_info_wrapper">
+
+
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Contact Information</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {{pro.contact | safe}}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Objective</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {{pro.objective | safe}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Bio</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {{pro.bio | safe}}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Professional Experience</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {% if pro.professional_experience %}
+                                                {{ pro.professional_experience | safe }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                               
+                                
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Educations</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {% if pro.education %}
+                                                {{ pro.education | safe }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">Skills</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {% if pro.skills %}
+                                                {{ pro.skills | safe }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fac_info">
+                                    <button class="accordion for_facDet">My Story</button>
+                                    <div class="panel for_bgborder">
+                                        <div class="academic_block table-responsive">
+                                            {% if pro.story %}
+                                                {{ pro.story | safe }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% comment %} <p>This page viewed total {{post.total_views}} times</p> {% endcomment %}
+                            </div>
+                        </div>
+  </div>
+
+  
+</div>
+
+</div>
 
 
 </div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "%";
+        }
+      });
+    }
+</script>
 {% endblock body %}    

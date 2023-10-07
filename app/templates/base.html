@@ -29,15 +29,15 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-custom sticky-top">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand text-white me-5" href="{% url 'index' %}">{{info}}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle  me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             MOVIES
           </a>
           <ul class="dropdown-menu bg-custom" aria-labelledby="navbarDropdown">
@@ -126,6 +126,7 @@
         <div class="single-footer">
           <h4>contact us</h4>
           <ul>
+            <li><a href=""><i class="fas fa-user"></i>{{info.name}}</a></li>
             <li><a href="#"><i class="fas fa-map-marker-alt"></i>{{info.address}}</a></li>
             <li><a href=""><i class="fas fa-mobile-alt"></i>{{info.phone}}</a></li>
             <li><a href=""><i class="far fa-envelope"></i>{{info.email}}</a></li>

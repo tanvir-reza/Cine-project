@@ -1,4 +1,6 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+
 
 # Create your models here.
 class Info(models.Model):
@@ -13,11 +15,30 @@ class Info(models.Model):
     instagram = models.CharField(max_length=100,blank=True,default='#')
     linkedin = models.CharField(max_length=100,blank=True,default='#')
 
+
     def __str__(self):
         return self.name
     
     class Meta:
         verbose_name_plural = 'Info'
+
+
+class professional(models.Model):
+    name = models.CharField(max_length=50)
+    designation = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='professionals/',blank=True)
+    objective = RichTextField()
+    bio = RichTextField()
+    professional_experience = RichTextField()
+    education = RichTextField()
+    skills = RichTextField()
+    story = RichTextField()
+    contact = RichTextField()
+
+
+
+    def __str__(self):
+        return self.name
     
 class Category(models.Model):
     name = models.CharField(max_length=100)
